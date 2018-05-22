@@ -1,0 +1,195 @@
+{
+	"id": "com.dondorp.homey.byrondb",
+	"version": "1.0.0",
+	"compatibility": ">=1.5.0",
+	"sdk": 2,
+	"name": {
+		"nl": "Byron DB Deurbel",
+		"en": "Byron DB Doorbell"
+	},
+	"description": {
+		"nl": "Geeft ondersteuning voor Byron DB deurbellen.",
+		"en": "Adds support for Byron DB Doorbells."
+	},
+	"category": [
+		"appliances"
+	],
+	"permissions": [
+		"homey:wireless:433"
+		],
+	"keywords": ["doorbell", "deurbel", "Byron", "DB"],
+	"images": {
+		"large": "/assets/images/large.png",
+		"small": "/assets/images/small.png"
+	},
+	"author": {
+		"name": "Erwin Dondorp",
+		"email": "byrondb@dondorp.com"
+	},
+	"drivers": [
+		{
+			"id": "ByronDbButton",
+			"name": {
+				"en": "Byron DB Button",
+				"nl": "Byron DB Knop"
+			},
+			"images": {
+				"large": "/drivers/ByronDbButton/assets/images/large.png",
+				"small": "/drivers/ByronDbButton/assets/images/small.png"
+			},
+			"_comment": "Don't use class/capability 'button', this will make the Homey pretend it can push that button",
+			"class": "other",
+			"capabilities": [],
+			"pair": [
+				{
+					"id": "start",
+					"navigation": {
+						"next": "list_devices"
+					}
+				},
+				{
+					"id": "list_devices",
+					"template": "list_devices",
+					"navigation": {
+						"next": "add_devices"
+					}
+				},
+				{
+					"id": "add_devices",
+					"template": "add_devices"
+				}
+			]
+		},
+		{
+			"id": "ByronDbBell",
+			"name": {
+				"en": "Byron DB Bell",
+				"nl": "Byron DB Bel"
+			},
+			"images": {
+				"large": "/drivers/ByronDbBell/assets/images/large.png",
+				"small": "/drivers/ByronDbBell/assets/images/small.png"
+			},
+			"_comment": "Don't use class/capability 'doorbell', this does not seem to do anything",
+			"class": "other",
+			"capabilities": [],
+			"pair": [
+				{
+					"id": "start",
+					"navigation": {
+						"next": "list_devices"
+					}
+				},
+				{
+					"id": "list_devices",
+					"template": "list_devices",
+					"navigation": {
+						"next": "add_devices"
+					}
+				},
+				{
+					"id": "add_devices",
+					"template": "add_devices"
+				}
+			]
+		}
+	],
+	"signals": {
+		"433": {
+			"ByronDbSignal": {
+				"sof": [ ],
+				"eof": [ 500, 4000 ],
+				"words": [
+					[ 500, 1500 ],
+					[ 1500, 500 ]
+				],
+				"interval": 2728,
+				"xsensitivity": 0.7,
+				"repetitions": 42,
+				"minimalLength": 32,
+				"maximalLength": 32
+			}
+		}
+	},
+	"flow": {
+		"triggers": [ {
+			"id": "receive_signal_generic",
+			"title": {
+				"en": "A doorbell is pressed",
+				"nl": "Een deurbel is ingedrukt"
+			},
+			"tokens": [
+				{
+					"name": "buttonId",
+					"type": "number",
+					"title": {
+						"en": "buttonId",
+						"nl": "drukkerId"
+					},
+					"example": 121
+				}
+			]
+		},
+		{
+			"id": "receive_signal_paired",
+			"args": [
+				{
+				"name": "button_paired",
+				"type": "device",
+				"filter": "driver_id=ByronDbButton"
+				}
+			],
+			"title": {
+				"en": "The doorbell is pressed",
+				"nl": "De deurbel is ingedrukt"
+			},
+			"tokens": [
+				{
+					"name": "buttonId",
+					"type": "number",
+					"title": {
+						"en": "buttonId",
+						"nl": "drukkerId"
+					},
+					"example": 121
+				}
+			]
+		}
+		],
+		"actions": [
+		{
+			"id": "send_ring_generic",
+			"title": {
+				"en": "Ring the bell",
+				"nl": "Laat de bel klinken"
+			},
+			"args": [
+				{
+					"name": "buttonId",
+					"type": "number",
+					"placeholder": {
+						"en": "buttonId",
+						"nl": "drukkerId"
+					},
+					"min": 0,
+					"max": 255
+				}
+			]
+		},
+		{
+			"id": "send_ring_paired",
+			"title": {
+				"en": "Ring the bell",
+				"nl": "Laat de bel klinken"
+			},
+			"args": [
+				{
+				"name": "bell_id_paired",
+				"type": "device",
+				"filter": "driver_id=ByronDbBell"
+				}
+			]
+		}
+		]
+	}
+}
