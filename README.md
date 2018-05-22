@@ -9,7 +9,7 @@ Doorbell push buttons:
 * possibly other Byron DB buttons
 
 Doorbell chimes:
-* DB401E
+* DB401E tested
 * possibly other Byron DB chimes
 
 Please tell me when you have a Byron DB device that is not listed here.
