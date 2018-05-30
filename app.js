@@ -34,8 +34,22 @@ byronDbSignal.register()
 		console.log("byronDbSignal.register.then");
 
 		// Other payloads
-		// payload: 0,1,0,1,1,0,0,1,0,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1
-		// TODO
+		// Erwin:
+		// buttonId: [0,1,0,1,1,0,0,1,0,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=1497814419
+		// buttonId: [1,1,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=3978921427
+		// buttonId: [0,1,0,1,1,0,0,1,0,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=1497814419
+		// buttonId: [1,1,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=3978921427
+		// buttonId: [0,1,0,1,1,0,0,1,0,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=1497814419
+		// buttonId: [1,1,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=3978921427
+		// buttonId: [0,1,0,1,1,0,0,1,0,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=1497814419
+		// buttonId: [1,1,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=3978921427
+		// Patrick:
+		// buttonId: [0,0,1,1,1,0,0,0,1,1,1,1,1,0,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=955962771
+		// buttonId: [0,0,1,0,1,1,1,1,1,1,0,1,0,1,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=802522579
+		// buttonId: [0,0,1,1,1,0,0,0,1,1,1,1,1,0,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=955962771
+		// buttonId: [0,0,1,0,1,1,1,1,1,1,0,1,0,1,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=802522579
+		// buttonId: [0,0,1,1,1,0,0,0,1,1,1,1,1,0,1,0,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1]=955962771
+		// buttonId: [0,0,1,0,1,1,1,1,1,1,0,1,0,1,0,1,1,0,0,0,0,1,0,1,1,1,0,1,0,0,1,1]=802522579
 
 		byronDbSignal.on('payload', function(payload, first) {
 			//console.log('received: signal:[' + payload + '], first:' + first);
@@ -90,7 +104,7 @@ byronDbSignal.register()
 			if(millis < 5000)
 			{
 				// Accept only one ring within 5 seconds
-				// console.log('IGNORED button: [' + payload + ']=' + buttonId + ', first: " + first);
+				// console.log('IGNORED button: [' + payload + ']=' + buttonId + ', first: ' + first);
 				return;
 			}
 
@@ -181,7 +195,7 @@ class ByronDbDoorbell extends Homey.App {
 			var buttonId = args['buttonId']
 			this.log('RING-ID-GENERIC: buttonId:' + buttonId);
 			var bits = getBits(buttonId);
-			this.log("bits:", bits);
+			this.log("bits:", JSON.stringify(bits));
 			byronDbSignal.tx(bits, this.logit);
 			return true;
 		});
@@ -190,7 +204,7 @@ class ByronDbDoorbell extends Homey.App {
 			var buttonId = parseInt(args['bell_id_paired'].getData()["buttonId"]);
 			this.log('RING-ID-PAIRED: buttonId:' + buttonId);
 			var bits = getBits(buttonId);
-			this.log("bits:", bits);
+			this.log("bits:", JSON.stringify(bits));
 			byronDbSignal.tx(bits, this.logit);
 			return true;
 		});
