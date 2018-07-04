@@ -27,7 +27,7 @@ Doorbell chimes:
 * DB320
 * DB333
 * DB401E tested
-* DB411E
+* DB411E tested
 * DB421E
 * DB431E
 * DB433E
@@ -58,6 +58,7 @@ The Byron DB series push buttons and bells all use the same 433MHz-based protoco
 Please report issues via [GitHub](https://github.com/erwindon/com.dondorp.homey.byrondb/issues). For other remarks and/or questions mail byrondb@dondorp.com.
 
 ### Version info
+* 1.2.0 Marked DB411E as tested
 * 1.1.0 Cleanup
 * 1.0.0 First Athom App Store release candidate
 
