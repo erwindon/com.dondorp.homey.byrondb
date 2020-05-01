@@ -1,3 +1,6 @@
+### IMPORTANT
+I'm no longer able to properly support this project.
+Anyone that can supply any nice PRs or other relevant motivation will be promoted to project owner...
 
 ### Byron DB series doorbells
 Homey app to receive signals from Byron DB doorbell pushbuttons; and to send signal to Byron DB doorbell chimes.
