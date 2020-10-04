@@ -57,9 +57,6 @@ You may create more complicated scenarios where you let the Homey flow decide wh
 #### Protocols
 The Byron DB series push buttons and bells all use the same 433MHz-based protocol. It uses a simple message consisting of 32 bits. The internal structure for the message has not yet been determined.
 
-### Discussion and issues
-Please report issues via [GitHub](https://github.com/erwindon/com.dondorp.homey.byrondb/issues). For other remarks and/or questions mail byrondb@dondorp.com.
-
 ### Version info
 * 1.2.0 Marked DB411E as tested
 * 1.1.0 Cleanup
