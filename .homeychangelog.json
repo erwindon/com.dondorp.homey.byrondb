@@ -1,0 +1,14 @@
+{
+  "1.0.0": {
+    "en": "First Athom App Store release candidate",
+    "nl": "Eerste Athom App Store release candidate"
+  },
+  "1.1.0": {
+    "en": "Cleanup",
+    "nl": "Opruiming"
+  },
+  "1.2.0": {
+    "en": "Marked DB411E as tested",
+    "nl": "DB411E gemarkeerd als getest"
+  }
+}

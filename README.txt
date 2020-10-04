@@ -57,14 +57,9 @@ You may create more complicated scenarios where you let the Homey flow decide wh
 #### Protocols
 The Byron DB series push buttons and bells all use the same 433MHz-based protocol. It uses a simple message consisting of 32 bits. The internal structure for the message has not yet been determined.
 
-### Version info
-* 1.2.0 Marked DB411E as tested
-* 1.1.0 Cleanup
-* 1.0.0 First Athom App Store release candidate
-
 ----------
 
-Copyright (c) 2018 Erwin Dondorp
+Copyright (c) 2018-2020 Erwin Dondorp
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
