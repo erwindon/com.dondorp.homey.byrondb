@@ -55,4 +55,4 @@ Contains the internal ID of the button that is recognized by the bell. Typically
 You may create more complicated scenarios where you let the Homey flow decide whether or not to send a command to the bell. First pair be bell so that it has a known internal ID. Then remove the batteries from the push button and reinsert them. This gives the push button a new random internal ID. Unless you are unlucky, the push button now has a different internal ID than the bell. You can use this to let your Homey decide whether the bell should indeed ring.
 
 #### Protocols
-The Byron DB series push buttons and bells all use the same 433MHz-based protocol. It uses a simple message consisting of 32 bits. The internal structure for the message has not yet been determined.
+The Byron DB series push buttons and chimes all use the same 433MHz-based protocol. It uses a simple message consisting of 32 bits. The internal structure for the message has not yet been determined.
