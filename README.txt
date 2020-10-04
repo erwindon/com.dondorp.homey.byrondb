@@ -18,22 +18,22 @@ Doorbell push buttons:
 * possibly other Byron DB buttons
 
 Doorbell chimes:
-* DB286A
+* DB286
 * DB301
 * DB302
 * DB303
 * DB304
-* DB305usb
+* DB305
 * DB306
 * DB312
 * DB313
 * DB320
 * DB333
-* DB401E tested
-* DB411E tested
-* DB421E
-* DB431E
-* DB433E
+* DB401 tested
+* DB411 tested
+* DB421
+* DB431
+* DB433
 * possibly other Byron DB chimes
 
 Please tell me when you have a Byron DB device that is not listed here.
